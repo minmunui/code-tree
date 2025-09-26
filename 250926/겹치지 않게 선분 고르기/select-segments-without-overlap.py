@@ -10,7 +10,7 @@ lines = list(zip(x1, x2))
 
 def is_selectable(ls):
     # print(f"is_selectable({ls})")
-    grid = [0] * 100
+    grid = [0] * 1001
     for l in ls:
         for point in range(l[0], l[1]+1):
             grid[point] += 1
