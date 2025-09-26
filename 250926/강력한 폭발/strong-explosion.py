@@ -29,25 +29,26 @@ def get_area(bombs: list[int]):
     # print(f"bombs : {bombs}")
 
     temp_grid = [[0] * n for _ in range(n)]
+    bombed = []
 
     for i, bomb in enumerate(bombs):
         
         pos = pos_bomb[i]
         _grid[pos[0]][pos[1]] = bomb
         if bomb == 1:
-            bombed = [pos, (pos[0] - 1, pos[1]), (pos[0] - 2, pos[1]), (pos[0] + 1, pos[1]), (pos[0] + 2, pos[1])]
+            bombed += [pos, (pos[0] - 1, pos[1]), (pos[0] - 2, pos[1]), (pos[0] + 1, pos[1]), (pos[0] + 2, pos[1])]
         if bomb == 2:
-            bombed = [pos, (pos[0] - 1, pos[1]), (pos[0], pos[1] + 1), (pos[0] + 1, pos[1]), (pos[0], pos[1] - 1)]
+            bombed += [pos, (pos[0] - 1, pos[1]), (pos[0], pos[1] + 1), (pos[0] + 1, pos[1]), (pos[0], pos[1] - 1)]
         if bomb == 3:
-            bombed = [pos, (pos[0] - 1, pos[1] - 1), (pos[0] - 1, pos[1] + 1), (pos[0] + 1, pos[1] + 1), (pos[0] + 1, pos[1] - 1)]
+            bombed += [pos, (pos[0] - 1, pos[1] - 1), (pos[0] - 1, pos[1] + 1), (pos[0] + 1, pos[1] + 1), (pos[0] + 1, pos[1] - 1)]
         
 
         # print(f"temp : {temp_grid}")
 
         # print(f"bombed : {bombed}")
-        for _bombed in bombed:
-            if (0 <= _bombed[0] < n) and (0 <= _bombed[1] < n):
-                temp_grid[_bombed[0]][_bombed[1]] = 1
+    for _bombed in bombed:
+        if (0 <= _bombed[0] < n) and (0 <= _bombed[1] < n):
+            temp_grid[_bombed[0]][_bombed[1]] = 1
 
     # print("bombs")
     # print_area(_grid)
