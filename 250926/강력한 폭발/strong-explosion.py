@@ -25,7 +25,6 @@ def print_area(a):
 
 
 def get_area(bombs: list[int]):
-    _grid = copy.deepcopy(grid)
     # print(f"bombs : {bombs}")
 
     temp_grid = [[0] * n for _ in range(n)]
@@ -34,7 +33,6 @@ def get_area(bombs: list[int]):
     for i, bomb in enumerate(bombs):
         
         pos = pos_bomb[i]
-        _grid[pos[0]][pos[1]] = bomb
         if bomb == 1:
             _bombed = [pos, (pos[0] - 1, pos[1]), (pos[0] - 2, pos[1]), (pos[0] + 1, pos[1]), (pos[0] + 2, pos[1])]
         if bomb == 2:
