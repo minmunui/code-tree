@@ -31,7 +31,7 @@ def get_value(exp, values):
         "f" : values[5],
     }
     last = None
-    result = 0
+    result = -(2 ** 31)
     for i, char in enumerate(exp):
         # print(f"char = {char}, result = {result}, ", end = "")
         if i == 0:
@@ -50,11 +50,14 @@ def get_value(exp, values):
 
 
 maxima = 0
+arr = []
 for comb in combs:
     # print(f"comb : {comb}")
     value = get_value(expression, comb)
     # print(f"value : {value}")
     if value > maxima:
         maxima = value
+        arr = comb
 
 print(maxima)
+# print(arr)
