@@ -49,7 +49,7 @@ def get_value(exp, values):
     return result
 
 
-maxima = 0
+maxima = -(2 ** 32)
 arr = []
 for comb in combs:
     # print(f"comb : {comb}")
